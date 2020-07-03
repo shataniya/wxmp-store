@@ -1,0 +1,8 @@
+<view class="container">
+    <text class="text">{{message}}</text>
+    <text class="text">{{num}}</text>
+    <view class="btn-group">
+        <button bindtap="onAdd">点击加1</button>
+        <button bindtap="onReduce">点击减1</button>
+    </view>
+</view>

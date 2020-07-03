@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/Home/index",
+    "pages/Setting/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "好大夫在线小程序",
+    "navigationBarBackgroundColor": "#99CCFF"
+  },
+  "tabBar": {
+    "color": "#222",
+    "selectedColor": "#99CCFF",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/Home/index",
+        "iconPath": "asset/home.png",
+        "selectedIconPath": "asset/selected-home.png"
+      },
+      {
+        "text": "设置",
+        "pagePath": "pages/Setting/index",
+        "iconPath": "asset/setting.png",
+        "selectedIconPath": "asset/selected-setting.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

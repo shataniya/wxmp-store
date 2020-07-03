@@ -1,0 +1,5 @@
+<view class="container">
+    <input class="text" value="{{message}}" bindinput="onMessageInput"></input>
+    <text class="text">{{num}}</text>
+</view>
+  
