@@ -1,4 +1,4 @@
-const store = getApp().store
+const store = require('../../store/index')
 
 Page({
   data: {
