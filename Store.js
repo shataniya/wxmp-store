@@ -1,3 +1,19 @@
+// 为了监听数组的变化
+const arrayMethods = Object.create(Array.prototype)
+const ArrayProtoType = []
+Object.getOwnPropertyNames(Array.prototype).forEach(key => {
+  if (typeof arrayMethods[key] === 'function') {
+    ArrayProtoType[key] = function () {
+      // console.log('触发了'+key+'事件')
+      // 更新数组
+      arrayMethods[key].apply(this, arguments)
+      // 触发数据的更新
+      Store.$vm.emit(this.name, this)
+    }
+  } else {
+    ArrayProtoType[key] = arrayMethods[key]
+  }
+})
 // store
 // 创建一个Store类
 function Store (reducers) {
@@ -12,11 +28,21 @@ function Store (reducers) {
 }
 // 初始化state数据
 Store.prototype.initState = function () {
+  // 为了获取Store的实例
+  Store.$vm = this
   // 在初始化state数据的时候，设置action默认为initAction
   const initAction = { type: '' }
   this.state = {}
   for (const attr in this.reducers) {
-    this.state[attr] = this.reducers[attr](undefined, initAction)
+    const state = this.reducers[attr](undefined, initAction)
+    if (Array.isArray(state)) {
+      // 说明state是一个数组
+      // 然后监听数组的变化
+      state.__proto__ = ArrayProtoType
+      // 为了记录属性名
+      state.name = attr
+    }
+    this.state[attr] = state
   }
 }
 // 初始化数据更新触发的事件
