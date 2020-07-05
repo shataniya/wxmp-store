@@ -1,5 +1,7 @@
 <view class="container">
     <input class="text" value="{{message}}" bindinput="onMessageInput"></input>
     <text class="text">{{num}}</text>
+    <button bindtap="onClick">点击更新list</button>
+    <text wx:for="{{list}}" wx:key="name">{{item.name}}</text>
 </view>
   

@@ -23,7 +23,21 @@ function num (state = initState.num, action) {
   }
 }
 
+function list (state = initState.list, action) {
+  switch (action.type) {
+    case 'PUSH':
+      state.push(action.data)
+      return state
+    case 'POP':
+      state.pop()
+      return state
+    default:
+      return state
+  }
+}
+
 module.exports = {
   message,
-  num
+  num,
+  list
 }

@@ -5,4 +5,5 @@
         <button bindtap="onAdd">点击加1</button>
         <button bindtap="onReduce">点击减1</button>
     </view>
+    <text wx:for="{{list}}" wx:key="name">{{item.name}}</text>
 </view>
