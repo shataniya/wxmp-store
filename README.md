@@ -47,7 +47,33 @@ const store = new Store(reducers)
 module.exports = store
 ```
 【1】【2】【3】完成之后基本上这个项目的store就已经构建好了。
-# store的使用
+# 使用方法
 基本上store的使用可以归结为两个方法：store.map 和 store.dispatch
 # store.map
 store.map 的作用就是将页面或组件里的属性和store里面的数据关联起来
+```javascript
+/**
+ * @function store.map
+ * @description 将页面或组件里的属性 和 store的数据关联起来
+ * @param vm - 这个页面或这个组件，值一般为 this
+ * @param {String} wxmpAttr - 页面或组件里的属性，主要是data属性
+ * @param {String} attr - store里的数据（你想要关联的store数据）
+ */
+store.map(vm, wxmpAttr, attr)
+```
+# store.dispatch
+```javascript
+/**
+ * @function store.dispatch
+ * @description 触发事件更新的方法
+ * @param {Object} action - 通过触发action去更新数据
+ */
+store.dispatch(action)
+```
+以上面的例子为例，假设你想要num加1，可以这样：
+```javascript
+const action = { type: 'NUM_ADD' } // 通过触发 NUM_ADD 方法来更新num让num加1
+store.dispatch(action) // 更新数据
+```
+【建议】结合example项目可以更方便的理解store的使用
+
