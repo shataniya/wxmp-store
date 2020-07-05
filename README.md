@@ -75,5 +75,5 @@ store.dispatch(action)
 const action = { type: 'NUM_ADD' } // 通过触发 NUM_ADD 方法来更新num让num加1
 store.dispatch(action) // 更新数据
 ```
-【建议】结合example项目可以更方便的理解store的使用
+`【建议】结合example项目可以更方便的理解store的使用`
 
